@@ -184,7 +184,7 @@ export class WorkersPool {
 
 const workersPool = new WorkersPool({
   createWorker: (workerPath, orderTermination) => {
-    const worker = new Worker(workerPath)
+    const worker = new Worker(workerPath, {type: 'module'})
     return new ExtendedWorker(worker, useWorker, orderTermination)
   }
 })
